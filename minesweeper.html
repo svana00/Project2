@@ -1,0 +1,32 @@
+<head>
+    <title>Minesweeper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styling.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- We need to import Axios in order to be able to use the axios object below -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="mines.js"></script>
+</head>
+
+<body>
+    <div id = "title">
+        <img id = "logo" src="logo.png">
+    </div>
+    <br>
+    <!-- Clicking this button calls doAjax(), which will do an AJAX request -->
+    <form>
+    Rows: <input id = "rows" type = "number">
+    Columns: <input id = "cols" type = "number">
+    Mines: <input id = "mines" type = "number">
+    <button class="click_button" type = "button" onclick="clearField(mineField)">Generate</button>
+    </form>
+
+    <div id = "mineField">
+
+    </div>
+
+</body>
+
+</html>
