@@ -32,15 +32,18 @@ function doAjax() {
 
                     if (j % my_cols == 0) {
                         var br = document.createElement("br");
-                        container.appendChild(br); 
+                        container.appendChild(br);
                     }
+                    
                     var currentBut = document.createElement("button");
                     var state = [i, j];
                     console.log(mine_positions);
+
                     if (mine_positions.includes(state)) {
                         currentBut.className = "bomb";
                         console.log("test")
                     }
+
                     currentBut.setAttribute("id", state);
                     container.appendChild(currentBut);
                 }
@@ -52,3 +55,6 @@ function doAjax() {
             console.log(error);
         });
 }
+
+// function mark_mines() {
+// }
