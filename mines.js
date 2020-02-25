@@ -25,7 +25,6 @@ function doAjax() {
             var my_cols =board.cols;
             var container = document.getElementById("mineField");
             var mine_positions = response.data.board.minePositions;
-            console.log(mine_positions);
 
             for (var i = 0; i < my_rows; i++) {
                 for (var j = 0; j < my_cols; j++) {
@@ -37,11 +36,9 @@ function doAjax() {
                     
                     var currentBut = document.createElement("button");
                     var state = [i, j];
-                    console.log(mine_positions);
 
                     if (mine_positions.includes(state)) {
                         currentBut.className = "bomb";
-                        console.log("test")
                     }
 
                     currentBut.setAttribute("id", state);
