@@ -73,29 +73,45 @@ function mark_mines() {
             var right = document.getElementById(String(i+1) + "," + String(j))
             var left = document.getElementById(String(i-1) + "," + String(j))
 
+            if (current_button.classList.contains("mine")) {
+                if (upper != null) {
+                    if (upper.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+                if (lower != null) {
+                    if (lower.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+                if (right != null) {
+                    if (right.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+                if (left != null) {
+                    if (left.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+            }
+            
+            if (counter === 1) {
+                current_button.className = "one_bomb";
+            }
 
-            if (upper != null) {
-                if (upper.classList.contains("bomb")) {
-                    counter += 1
-                }
+            else if (counter === 2) {
+                current_button.className = "two_bombs";
             }
-            if (lower != null) {
-                if (lower.classList.contains("bomb")) {
-                    counter += 1
-                }
-            }
-            if (right != null) {
-                if (right.classList.contains("bomb")) {
-                    counter += 1
-                }
-            }
-            if (left != null) {
-                if (left.classList.contains("bomb")) {
-                    counter += 1
-                }
-            }
-            console.log(counter)
 
+            else if (counter === 3) {
+                current_button.className = "three_bombs";
+            }
+
+            else if (counter === 4) {
+                current_button.className = "four_bombs";
+            }
+            console.log(current_button)
         }
     }
 }
