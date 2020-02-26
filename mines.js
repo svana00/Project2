@@ -116,3 +116,30 @@ function mark_mines() {
         }
     }
 }
+
+function mine_click(button) {
+
+    if (button.className = "mine") {
+        
+    }
+
+    else if (button.className = "one_bomb") {
+
+    }
+
+    else if (button.className = "two_bombs") {
+
+    }
+
+    else if (button.className = "three_bombs") {
+
+    }
+
+    else if (button.className = "four_bombs") {
+
+    }
+
+    else if (button.className = "the_bomb") {
+
+    }
+}
