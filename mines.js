@@ -38,6 +38,7 @@ function doAjax() {
                     }
                     
                     var currentBut = document.createElement("button");
+                    currentBut.onclick = mine_click(currentBut)
                     currentBut.className = "mine";
                     var state = [i, j];
 
