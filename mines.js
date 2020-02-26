@@ -1,4 +1,7 @@
 "use strict";
+var my_rows;
+var my_cols;
+var mine_positions;
 
 function clearField(mineField)
 {
@@ -21,10 +24,10 @@ function doAjax() {
             console.log("Success: ", response.data);
 
             var board = response.data.board;
-            var my_rows = board.rows;
-            var my_cols =board.cols;
+            my_rows = board.rows;
+            my_cols = board.cols;
             var container = document.getElementById("mineField");
-            var mine_positions = response.data.board.minePositions;
+            mine_positions = response.data.board.minePositions;
 
             for (var i = 0; i < my_rows; i++) {
                 for (var j = 0; j < my_cols; j++) {
@@ -35,16 +38,20 @@ function doAjax() {
                     }
                     
                     var currentBut = document.createElement("button");
+                    currentBut.className = "mine";
                     var state = [i, j];
 
-                    if (mine_positions.includes(state)) {
-                        currentBut.className = "bomb";
-                    }
+                    for (var index = 0; index < mine_positions.length; index++) { 
+                        if (i === mine_positions[index][0] && j === mine_positions[index][1]) {
+                            currentBut.className = "bomb";
+                        }
+                    } 
 
                     currentBut.setAttribute("id", state);
                     container.appendChild(currentBut);
                 }
             }
+            mark_mines()
             
         })
         .catch(function (error) {
@@ -53,5 +60,42 @@ function doAjax() {
         });
 }
 
-// function mark_mines() {
-// }
+function mark_mines() {
+
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+            var id = String(i) + "," + String(j)
+            var counter = 0
+            var current_button = document.getElementById(id)
+
+            var upper = document.getElementById(String(i) + "," + String(j-1))
+            var lower = document.getElementById(String(i) + "," + String(j+1))
+            var right = document.getElementById(String(i+1) + "," + String(j))
+            var left = document.getElementById(String(i-1) + "," + String(j))
+
+
+            if (upper != null) {
+                if (upper.classList.contains("bomb")) {
+                    counter += 1
+                }
+            }
+            if (lower != null) {
+                if (lower.classList.contains("bomb")) {
+                    counter += 1
+                }
+            }
+            if (right != null) {
+                if (right.classList.contains("bomb")) {
+                    counter += 1
+                }
+            }
+            if (left != null) {
+                if (left.classList.contains("bomb")) {
+                    counter += 1
+                }
+            }
+            console.log(counter)
+
+        }
+    }
+}
