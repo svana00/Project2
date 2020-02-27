@@ -194,7 +194,6 @@ function mark_mines() {
 
         }
     }
-<<<<<<< HEAD
 }
 
 function mine_click(button) {
@@ -245,6 +244,4 @@ function mine_click(button) {
     }
 
     console.log(button);
-=======
->>>>>>> parent of 95ea11e... neðst hehe
 }
