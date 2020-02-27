@@ -9,39 +9,6 @@ function clearField(mineField)
     doAjax();
 }
 
-function mine_click(button) {
-
-    console.log(button);
-
-    if (button.className === "mine") {
-        //return;
-        console.log("mine(safe)");
-    }
-
-    else if (button.className === "one_bomb") {
-        button.textContent = "1";
-    }
-
-    else if (button.className === "two_bombs") {
-        button.textContent = "2";
-    }
-
-    else if (button.className === "three_bombs") {
-        button.textContent = "3";
-    }
-
-    else if (button.className === "four_bombs") {
-        button.textContent = "4";
-    }
-
-    else if (button.className === "bomb") {
-        //return;
-        console.log("bomb");
-    }
-
-    console.log(button);
-}
-
 function doAjax() {
 
     //The URL to which we will send the request
@@ -151,4 +118,37 @@ function mark_mines() {
 
         }
     }
+}
+
+function mine_click(button) {
+
+    console.log(button);
+
+    if (button.className === "mine") {
+        //return;
+        console.log("mine(safe)");
+    }
+
+    else if (button.className === "one_bomb") {
+        button.textContent = "1";
+    }
+
+    else if (button.className === "two_bombs") {
+        button.textContent = "2";
+    }
+
+    else if (button.className === "three_bombs") {
+        button.textContent = "3";
+    }
+
+    else if (button.className === "four_bombs") {
+        button.textContent = "4";
+    }
+
+    else if (button.className === "bomb") {
+        //return;
+        console.log("bomb");
+    }
+
+    console.log(button);
 }
