@@ -52,3 +52,26 @@ input {
     margin-top: 10px;
     text-align: center;
 }
+
+.one_bomb {
+    color:rgb(0, 0, 255);
+}
+.two_bombs {
+    color:rgb(0, 133, 0);
+}
+.three_bombs {
+    color:rgb(252, 2, 2);
+}
+
+.four_bombs {
+    color:rgb(177, 72, 90);
+}
+
+.five_bombs {
+    color:rgb(134, 18, 134);
+    
+}
+
+.six_bombs,.seven_bombs, .eight_bombs {
+    color:rgb(54, 5, 117);
+}
