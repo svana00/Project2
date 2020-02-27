@@ -41,3 +41,14 @@ input {
     height:70px ;
     width: 250px;
 }
+
+#alert_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.alert {
+    width: 500px;
+    margin-top: 10px;
+    text-align: center;
+}

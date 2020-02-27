@@ -305,6 +305,7 @@ function defeat() {
             }
         }
     }
+<<<<<<< HEAD
 }
 
 function is_victory() {
@@ -332,4 +333,12 @@ function is_victory() {
     bool = true;
     alert("you woooooooon!!! whoop whoop!!!!!!!!")
     return bool;
+=======
+    var alert_div = document.getElementById("alert_div");
+    var defeat_alert = document.createElement("div");
+    defeat_alert.classList.add("alert");
+    defeat_alert.classList.add("alert-danger");
+    defeat_alert.textContent = "Game over. You can try again by pressing the 'Generate' button"
+    alert_div.appendChild(defeat_alert);
+>>>>>>> a45292093f218effa54c3498b2fb9df846ee80d3
 }
