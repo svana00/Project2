@@ -271,6 +271,7 @@ function cell_right_click(button) {
 
         button.appendChild(flag_img);
         button.isflagged = true;
+        button.disabled = true;
         }
 
     console.log(button);
