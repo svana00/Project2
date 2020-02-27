@@ -9,37 +9,6 @@ function clearField(mineField)
     doAjax();
 }
 
-function cell_click(button) {
-
-    console.log(button);
-
-    if (button.className === "cell") {
-        console.log("mine(safe)");
-    }
-
-    else if (button.className === "one_bomb") {
-        button.textContent = "1";
-    }
-
-    else if (button.className === "two_bombs") {
-        button.textContent = "2";
-    }
-
-    else if (button.className === "three_bombs") {
-        button.textContent = "3";
-    }
-
-    else if (button.className === "four_bombs") {
-        button.textContent = "4";
-    }
-
-    else if (button.className === "bomb") {
-        console.log("bomb");
-    }
-
-    console.log(button);
-}
-
 function doAjax() {
 
     //The URL to which we will send the request
@@ -68,10 +37,10 @@ function doAjax() {
                         container.appendChild(br);
                     }
 
-                    var state = [i, j];
+                    var state = [j, i];
                     var currentBut = document.createElement("button");
-                    currentBut.xval = i;
-                    currentBut.yval = j;
+                    currentBut.xval = j;
+                    currentBut.yval = i;
                     currentBut.onclick = function() {cell_click(this);};
                     currentBut.className = "cell";
 
