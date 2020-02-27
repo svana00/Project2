@@ -9,6 +9,13 @@
     width: 2.2em;
     display: table-cell;
     vertical-align: middle;
+    box-shadow: inset 5px 5px 10px #FFF, inset -3px -3px 5px #777;
+    font-weight: bold;
+}
+
+#mineField .threeD {
+    box-shadow: none;
+    background-color: "grey";
 }
 
 button > img {
