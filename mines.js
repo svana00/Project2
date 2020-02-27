@@ -253,7 +253,7 @@ function cell_click(button) {
         button.textContent = "8";
         button.disabled = true;
         button.classList.add("threeD");
-    } 
+    }
 
     else if (button.className === "bomb") {
 
@@ -261,6 +261,7 @@ function cell_click(button) {
     }
 
     console.log(button);
+    is_victory();
 }
 
 function cell_right_click(button) {
@@ -285,6 +286,7 @@ function cell_right_click(button) {
 
     console.log(button);
     document.addEventListener('contextmenu', event => event.preventDefault());
+    is_victory();
 }
 
 function defeat() {
@@ -303,4 +305,31 @@ function defeat() {
             }
         }
     }
+}
+
+function is_victory() {
+    var bool;
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+            var id = String(i) + "," + String(j);
+            var button = document.getElementById(id); // næ í hvert button
+            if (button.classList.contains("bomb")) {
+                //verður að vera flagged
+                if (button.classList.contains("flagged") === false) {
+                    bool = false;
+                    return bool;
+                }
+            }
+
+            else {
+                if (button.disabled === false) {
+                    bool = false;
+                    return bool;
+                }
+            }
+        }
+    }
+    bool = true;
+    alert("you woooooooon!!! whoop whoop!!!!!!!!")
+    return bool;
 }
