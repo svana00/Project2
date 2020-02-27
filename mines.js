@@ -125,19 +125,19 @@ function mine_click(button) {
     }
 
     else if (button.className = "one_bomb") {
-        return;
+        button.value = "1";
     }
 
     else if (button.className = "two_bombs") {
-        return;
+        button.value = "2";
     }
 
     else if (button.className = "three_bombs") {
-        return;
+        button.value = "3";
     }
 
     else if (button.className = "four_bombs") {
-        return;
+        button.value = "4";
     }
 
     else if (button.className = "the_bomb") {
