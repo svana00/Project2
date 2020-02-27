@@ -76,6 +76,10 @@ function mark_mines() {
             var lower = document.getElementById(String(i) + "," + String(j+1))
             var right = document.getElementById(String(i+1) + "," + String(j))
             var left = document.getElementById(String(i-1) + "," + String(j))
+            var left_down_diagonal = document.getElementById(String(i-1) + "," + String(j+1))
+            var right_down_diagonal = document.getElementById(String(i+1) + "," + String(j+1))
+            var left_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
+            var right_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
 
             if (current_button.classList.contains("mine")) {
                 if (upper != null) {
@@ -98,6 +102,29 @@ function mark_mines() {
                         counter += 1
                     }
                 }
+                if (left_down_diagonal != null) {
+                    if (left_down_diagonal.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+
+                if (right_down_diagonal != null) {
+                    if (right_down_diagonal.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+
+                if (left_up_diagonal != null) {
+                    if (left_up_diagonal.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
+
+                if (right_up_diagonal != null) {
+                    if (right_up_diagonal.classList.contains("bomb")) {
+                        counter += 1
+                    }
+                }
             }
             
             if (counter === 1) {
@@ -114,6 +141,22 @@ function mark_mines() {
 
             else if (counter === 4) {
                 current_button.className = "four_bombs";
+            }
+
+            else if (counter === 5) {
+                current_button.className = "five_bombs";
+            }
+
+            else if (counter === 6) {
+                current_button.className = "six_bombs";
+            }
+
+            else if (counter === 7) {
+                current_button.className = "seven_bombs";
+            }
+
+            else if (counter === 8) {
+                current_button.className = "eight_bombs";
             }
 
         }
@@ -143,6 +186,22 @@ function mine_click(button) {
 
     else if (button.className === "four_bombs") {
         button.textContent = "4";
+    }
+
+    else if (button.className === "five_bombs") {
+        button.textContent = "5";
+    }
+
+    else if (button.className === "six_bombs") {
+        button.textContent = "6";
+    }
+
+    else if (button.className === "seven_bombs") {
+        button.textContent = "7";
+    }
+
+    else if (button.className === "eight_bombs") {
+        button.textContent = "8";
     }
 
     else if (button.className === "bomb") {
