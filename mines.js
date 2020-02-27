@@ -196,6 +196,34 @@ function find_adjacent_cells(button) {
             cell_click(right); 
         }
     }
+
+    var left_down_diagonal = document.getElementById(String(x-1) + "," + String(y+1));
+    if (left_down_diagonal != null) {
+        if (left_down_diagonal.disabled != true) {
+            cell_click(left_down_diagonal); 
+        }
+    }
+
+    var right_down_diagonal = document.getElementById(String(x+1) + "," + String(y+1));
+    if (right_down_diagonal != null) {
+        if (right_down_diagonal.disabled != true) {
+            cell_click(right_down_diagonal); 
+        }
+    }
+
+    var left_up_diagonal = document.getElementById(String(x-1) + "," + String(y-1));
+    if (left_up_diagonal != null) {
+        if (left_up_diagonal.disabled != true) {
+            cell_click(left_up_diagonal); 
+        }
+    }
+
+    var right_up_diagonal = document.getElementById(String(x+1) + "," + String(y-1));
+    if (right_up_diagonal != null) {
+        if (right_up_diagonal.disabled != true) {
+            cell_click(right_up_diagonal); 
+        }
+    }
 }
 
 function cell_click(button) {
