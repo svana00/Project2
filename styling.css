@@ -59,7 +59,7 @@ input {
 .two_bombs {
     color:rgb(0, 133, 0);
 }
-.three_bombs {
+.three_bombs, .four_bombs, .five_bombs, .six_bombs, .seven_bombs, .eight_bombs {
     color:rgb(252, 2, 2);
 }
 
