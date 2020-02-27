@@ -199,6 +199,9 @@ function find_adjacent_cells(button) {
 }
 
 function cell_click(button) {
+    if (button.classList.contains("flagged") === true) {
+        return ;
+    }
 
     console.log(button);
 
@@ -280,7 +283,6 @@ function cell_right_click(button) {
 
         button.appendChild(flag_img);
         button.classList.add("flagged");
-        button.disabled = true;
         console.log(button);
 
         }
@@ -313,6 +315,15 @@ function defeat() {
     defeat_alert.textContent = "Game over. You can try again by pressing the 'Generate' button"
     alert_div.appendChild(defeat_alert);
 }
+function disable_board() {
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+            var id = String(i) + "," + String(j);
+            var button = document.getElementById(id);
+            button.disabled = true;
+        }
+    }
+}
 
 function is_victory() {
     var bool;
@@ -336,6 +347,7 @@ function is_victory() {
             }
         }
     }
+    disable_board()
     var alert_div = document.getElementById("alert_div");
     var win_alert = document.createElement("div");
     win_alert.classList.add("alert");
