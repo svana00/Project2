@@ -167,23 +167,23 @@ function find_adjacent_cells(button) {
     var y = button.yval;
 
     var upper = document.getElementById(String(x) + "," + String(y-1));
-    if (upper.disabled != true && upper != null) {
+    if (upper != null || upper.disabled != true) {
     cell_click(upper); 
     }
 
     var lower = document.getElementById(String(x) + "," + String(y+1));
 
-    if (lower.disabled != true && lower != null) {
+    if (lower != null || lower.disabled != true) {
         cell_click(lower); 
     }
 
     var left = document.getElementById(String(x-1) + "," + String(y));
-    if (left.disabled != true && left != null) {
+    if (left != null || left.disabled != true) {
     cell_click(left); 
     }
 
     var right = document.getElementById(String(x+1) + "," + String(y));
-    if (right.disabled != true && right != null) {
+    if (right != null || right.disabled != true) {
     cell_click(right); 
     }
 }
