@@ -112,34 +112,35 @@ function mark_mines() {
             else if (counter === 4) {
                 current_button.className = "four_bombs";
             }
-            console.log(current_button)
+
         }
     }
 }
 
 function mine_click(button) {
+    console.log(button);
 
     if (button.className = "mine") {
-        
+        return;
     }
 
     else if (button.className = "one_bomb") {
-
+        return;
     }
 
     else if (button.className = "two_bombs") {
-
+        return;
     }
 
     else if (button.className = "three_bombs") {
-
+        return;
     }
 
     else if (button.className = "four_bombs") {
-
+        return;
     }
 
     else if (button.className = "the_bomb") {
-
+        return;
     }
 }
