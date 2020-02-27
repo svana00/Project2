@@ -167,24 +167,31 @@ function find_adjacent_cells(button) {
     var y = button.yval;
 
     var upper = document.getElementById(String(x) + "," + String(y-1));
-    if (upper != null || upper.disabled != true) {
-    cell_click(upper); 
+    if (upper != null) {
+        if (upper.disabled != true) {
+            cell_click(upper); 
+        }
     }
 
     var lower = document.getElementById(String(x) + "," + String(y+1));
-
-    if (lower != null || lower.disabled != true) {
-    cell_click(lower); 
+    if (lower != null) {
+        if (lower.disabled != true) {
+            cell_click(lower); 
+        }
     }
 
     var left = document.getElementById(String(x-1) + "," + String(y));
-    if (left != null || left.disabled != true) {
-    cell_click(left); 
+    if (left != null) {
+        if (left.disabled != true) {
+            cell_click(left); 
+        }
     }
 
     var right = document.getElementById(String(x+1) + "," + String(y));
-    if (right != null || right.disabled != true) {
-    cell_click(right); 
+    if (right != null) {
+        if (right.disabled != true) {
+            cell_click(right); 
+        }
     }
 }
 
