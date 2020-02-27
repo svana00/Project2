@@ -303,4 +303,10 @@ function defeat() {
             }
         }
     }
+    var alert_div = document.getElementById("alert_div");
+    var defeat_alert = document.createElement("div");
+    defeat_alert.classList.add("alert");
+    defeat_alert.classList.add("alert-danger");
+    defeat_alert.textContent = "Game over. You can try again by pressing the 'Generate' button"
+    alert_div.appendChild(defeat_alert);
 }
