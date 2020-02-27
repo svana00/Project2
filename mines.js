@@ -14,7 +14,6 @@ function cell_click(button) {
     console.log(button);
 
     if (button.className === "cell") {
-        //return;
         console.log("mine(safe)");
     }
 
@@ -35,7 +34,6 @@ function cell_click(button) {
     }
 
     else if (button.className === "bomb") {
-        //return;
         console.log("bomb");
     }
 
@@ -71,10 +69,10 @@ function doAjax() {
                     }
 
                     var state = [i, j];
-                    var parameter = String(state)
                     var currentBut = document.createElement("button");
+                    currentBut.xval = i;
+                    currentBut.yval = j;
                     currentBut.onclick = function() {cell_click(this);};
-                    console.log(currentBut);
                     currentBut.className = "cell";
 
                     for (var index = 0; index < mine_positions.length; index++) { 
@@ -195,44 +193,80 @@ function mark_cells() {
     }
 }
 
+function find_adjacent_cells(button) {
+    var x = button.xval;
+    var y = button.yval;
+
+    var upper = document.getElementById(String(x) + "," + String(y-1));
+    if (upper.disabled != true && upper != null) {
+    cell_click(upper); 
+    }
+
+    var lower = document.getElementById(String(x) + "," + String(y+1));
+
+    if (lower.disabled != true && lower != null) {
+        cell_click(lower); 
+    }
+
+    var left = document.getElementById(String(x-1) + "," + String(y));
+    if (left.disabled != true && left != null) {
+    cell_click(left); 
+    }
+
+    var right = document.getElementById(String(x+1) + "," + String(y));
+    if (right.disabled != true && right != null) {
+    cell_click(right); 
+    }
+}
+
 function cell_click(button) {
 
     console.log(button);
 
     if (button.className === "cell") {
-        console.log("cell(safe)");
+        button.disabled = true;
+        button.style.backgroundColor = "pink";
+        find_adjacent_cells(button);
     }
 
     else if (button.className === "one_bomb") {
         button.textContent = "1";
+        button.disabled = true;
     }
 
     else if (button.className === "two_bombs") {
         button.textContent = "2";
+        button.disabled = true;
     }
 
     else if (button.className === "three_bombs") {
         button.textContent = "3";
+        button.disabled = true;
     }
 
     else if (button.className === "four_bombs") {
         button.textContent = "4";
+        button.disabled = true;
     }
 
     else if (button.className === "five_bombs") {
         button.textContent = "5";
+        button.disabled = true;
     }
 
     else if (button.className === "six_bombs") {
         button.textContent = "6";
+        button.disabled = true;
     }
 
     else if (button.className === "seven_bombs") {
         button.textContent = "7";
+        button.disabled = true;
     }
 
     else if (button.className === "eight_bombs") {
         button.textContent = "8";
+        button.disabled = true;
     }
 
     else if (button.className === "bomb") {
