@@ -9,39 +9,6 @@ function clearField(mineField)
     doAjax();
 }
 
-function mine_click(button) {
-
-    console.log(button);
-
-    if (button.className === "mine") {
-        //return;
-        console.log("mine(safe)");
-    }
-
-    else if (button.className === "one_bomb") {
-        button.textContent = "1";
-    }
-
-    else if (button.className === "two_bombs") {
-        button.textContent = "2";
-    }
-
-    else if (button.className === "three_bombs") {
-        button.textContent = "3";
-    }
-
-    else if (button.className === "four_bombs") {
-        button.textContent = "4";
-    }
-
-    else if (button.className === "bomb") {
-        //return;
-        console.log("bomb");
-    }
-
-    console.log(button);
-}
-
 function doAjax() {
 
     //The URL to which we will send the request
@@ -69,14 +36,11 @@ function doAjax() {
                         var br = document.createElement("br");
                         container.appendChild(br);
                     }
-
-                    var state = [i, j];
-                    var parameter = String(state)
+                    
                     var currentBut = document.createElement("button");
-                    currentBut.onclick = function() {mine_click(this);};
-                    // currentBut.setAttribute("onclick","mine_click()");
-                    console.log(currentBut);
+                    currentBut.onclick = mine_click(currentBut)
                     currentBut.className = "mine";
+                    var state = [i, j];
 
                     for (var index = 0; index < mine_positions.length; index++) { 
                         if (i === mine_positions[index][0] && j === mine_positions[index][1]) {
@@ -150,5 +114,33 @@ function mark_mines() {
             }
 
         }
+    }
+}
+
+function mine_click(button) {
+    console.log(button);
+
+    if (button.className = "mine") {
+        return;
+    }
+
+    else if (button.className = "one_bomb") {
+        button.value = "1";
+    }
+
+    else if (button.className = "two_bombs") {
+        button.value = "2";
+    }
+
+    else if (button.className = "three_bombs") {
+        button.value = "3";
+    }
+
+    else if (button.className = "four_bombs") {
+        button.value = "4";
+    }
+
+    else if (button.className = "the_bomb") {
+        return;
     }
 }
