@@ -9,11 +9,11 @@ function clearField(mineField)
     doAjax();
 }
 
-function mine_click(button) {
+function cell_click(button) {
 
     console.log(button);
 
-    if (button.className === "mine") {
+    if (button.className === "cell") {
         //return;
         console.log("mine(safe)");
     }
@@ -73,10 +73,9 @@ function doAjax() {
                     var state = [i, j];
                     var parameter = String(state)
                     var currentBut = document.createElement("button");
-                    currentBut.onclick = function() {mine_click(this);};
-                    // currentBut.setAttribute("onclick","mine_click()");
+                    currentBut.onclick = function() {cell_click(this);};
                     console.log(currentBut);
-                    currentBut.className = "mine";
+                    currentBut.className = "cell";
 
                     for (var index = 0; index < mine_positions.length; index++) { 
                         if (i === mine_positions[index][0] && j === mine_positions[index][1]) {
@@ -88,7 +87,7 @@ function doAjax() {
                     container.appendChild(currentBut);
                 }
             }
-            mark_mines()
+            mark_cells()
             
         })
         .catch(function (error) {
@@ -97,7 +96,7 @@ function doAjax() {
         });
 }
 
-function mark_mines() {
+function mark_cells() {
 
     for (var i = 0; i < my_rows; i++) {
         for (var j = 0; j < my_cols; j++) {
@@ -114,7 +113,7 @@ function mark_mines() {
             var left_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
             var right_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
 
-            if (current_button.classList.contains("mine")) {
+            if (current_button.classList.contains("cell")) {
                 if (upper != null) {
                     if (upper.classList.contains("bomb")) {
                         counter += 1
@@ -196,13 +195,12 @@ function mark_mines() {
     }
 }
 
-function mine_click(button) {
+function cell_click(button) {
 
     console.log(button);
 
-    if (button.className === "mine") {
-        //return;
-        console.log("mine(safe)");
+    if (button.className === "cell") {
+        console.log("cell(safe)");
     }
 
     else if (button.className === "one_bomb") {
