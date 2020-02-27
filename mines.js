@@ -248,9 +248,8 @@ function cell_click(button) {
     }
 
     else if (button.className === "bomb") {
-        var bomb_img = document.createElement("img");
-        bomb_img.src = "bomb.png";
-        button.appendChild(bomb_img);
+
+        defeat()
     }
 
     console.log(button);
@@ -275,4 +274,22 @@ function cell_right_click(button) {
         }
 
     console.log(button);
+}
+
+function defeat() {
+
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+
+            var id = String(i) + "," + String(j);
+            var button = document.getElementById(id);
+            button.disabled = true;
+
+            if (button.classList.contains("bomb")) {
+                var bomb_img = document.createElement("img");
+                bomb_img.src = "bomb.png";
+                button.appendChild(bomb_img);
+            }
+        }
+    }
 }
