@@ -269,3 +269,4 @@ button.appendChild(flag_img);
 button.isflagged = true;
 };
 console.log(button);
+}
