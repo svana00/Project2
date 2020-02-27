@@ -203,49 +203,57 @@ function cell_click(button) {
 
     if (button.className === "cell") {
         button.disabled = true;
-        button.style.backgroundColor = "pink";
+        button.classList.add("threeD");
         find_adjacent_cells(button);
     }
 
     else if (button.className === "one_bomb") {
         button.textContent = "1";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "two_bombs") {
         button.textContent = "2";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "three_bombs") {
         button.textContent = "3";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "four_bombs") {
         button.textContent = "4";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "five_bombs") {
         button.textContent = "5";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "six_bombs") {
         button.textContent = "6";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "seven_bombs") {
         button.textContent = "7";
         button.disabled = true;
+        button.classList.add("threeD");
     }
 
     else if (button.className === "eight_bombs") {
         button.textContent = "8";
         button.disabled = true;
-    }
+        button.classList.add("threeD");
+    } 
 
     else if (button.className === "bomb") {
 
