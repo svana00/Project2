@@ -112,7 +112,7 @@ function mark_mines() {
             var left_down_diagonal = document.getElementById(String(i-1) + "," + String(j+1))
             var right_down_diagonal = document.getElementById(String(i+1) + "," + String(j+1))
             var left_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
-            var right_up_diagonal = document.getElementById(String(i-1) + "," + String(j-1))
+            var right_up_diagonal = document.getElementById(String(i+1) + "," + String(j-1))
 
             if (current_button.classList.contains("mine")) {
                 if (upper != null) {
