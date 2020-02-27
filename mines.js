@@ -296,7 +296,7 @@ function defeat() {
             var button = document.getElementById(id);
             button.disabled = true;
 
-            if (button.classList.contains("bomb")) {
+            if (button.classList.contains("bomb") === true && button.classList.contains("flagged") === false) {
                 var bomb_img = document.createElement("img");
                 bomb_img.src = "bomb.png";
                 button.appendChild(bomb_img);
