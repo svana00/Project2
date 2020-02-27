@@ -265,8 +265,8 @@ function cell_click(button) {
 
 function cell_right_click(button) {
 
-    if (button.isflagged === true) {
-        button.isflagged = false;
+    if (button.classList.contains("flagged")) {
+        button.classList.remove("flagged");
         button.removeChild(document.getElementById("flag"));
         console.log(button);
     }
@@ -277,12 +277,9 @@ function cell_right_click(button) {
         flag_img.id = "flag";
 
         button.appendChild(flag_img);
-        button.isflagged = true;
+        button.classList.add("flagged");
         button.disabled = true;
-
-        if (button.className === "bomb") {
-            button.correctflag = true;
-        }
+        console.log(button);
 
         }
 
