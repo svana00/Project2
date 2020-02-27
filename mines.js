@@ -39,9 +39,11 @@ function doAjax() {
 
                     var state = [j, i];
                     var currentBut = document.createElement("button");
+                    currentBut.isflagged = false;
                     currentBut.xval = j;
                     currentBut.yval = i;
                     currentBut.onclick = function() {cell_click(this);};
+                    currentBut.oncontextmenu = function() {cell_right_click(this);};
                     currentBut.className = "cell";
 
                     for (var index = 0; index < mine_positions.length; index++) { 
