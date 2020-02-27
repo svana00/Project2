@@ -174,7 +174,7 @@ function find_adjacent_cells(button) {
     var lower = document.getElementById(String(x) + "," + String(y+1));
 
     if (lower != null || lower.disabled != true) {
-        cell_click(lower); 
+    cell_click(lower); 
     }
 
     var left = document.getElementById(String(x-1) + "," + String(y));
