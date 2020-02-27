@@ -253,3 +253,19 @@ function cell_click(button) {
 
     console.log(button);
 }
+
+function cell_right_click(button) {
+if (button.isflagged === true) {
+button.isflagged = false;
+document.getElementById("flag").style.display = "none";
+console.log(button);
+}
+else {
+var flag_img = document.createElement("img");
+flag_img.src = "flag.png";
+flag_img.id = "flag";
+
+button.appendChild(flag_img);
+button.isflagged = true;
+};
+console.log(button);
