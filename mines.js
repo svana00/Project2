@@ -68,10 +68,10 @@ function doAjax() {
                         container.appendChild(br);
                     }
 
-                    var state = [i, j];
+                    var state = [j, i];
                     var currentBut = document.createElement("button");
-                    currentBut.xval = i;
-                    currentBut.yval = j;
+                    currentBut.xval = j;
+                    currentBut.yval = i;
                     currentBut.onclick = function() {cell_click(this);};
                     currentBut.className = "cell";
 
@@ -205,7 +205,7 @@ function find_adjacent_cells(button) {
     var lower = document.getElementById(String(x) + "," + String(y+1));
 
     if (lower.disabled != true && lower != null) {
-        cell_click(lower); 
+        cell_click(lower);
     }
 
     var left = document.getElementById(String(x-1) + "," + String(y));
