@@ -146,8 +146,9 @@ function mine_click(button) {
     }
 
     else if (button.className === "bomb") {
-        //return;
-        console.log("bomb");
+        var bomb_img = document.createElement("img");
+        bomb_img.src = "bomb.png";
+        button.appendChild(bomb_img);
     }
 
     console.log(button);
