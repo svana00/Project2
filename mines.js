@@ -259,7 +259,7 @@ function cell_click(button) {
 function cell_right_click(button) {
 if (button.isflagged === true) {
 button.isflagged = false;
-document.getElementById("flag").style.display = "none";
+button.removeChild(document.getElementById("flag"));
 console.log(button);
 }
 else {
