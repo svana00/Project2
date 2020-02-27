@@ -280,7 +280,13 @@ function cell_right_click(button) {
         button.appendChild(flag_img);
         button.isflagged = true;
         button.disabled = true;
+
+        if (button.className === "bomb") {
+            button.correctflag = true;
+        }
+
         }
 
     console.log(button);
+    document.addEventListener('contextmenu', event => event.preventDefault());
 }
