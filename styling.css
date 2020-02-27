@@ -75,3 +75,8 @@ input {
 .six_bombs,.seven_bombs, .eight_bombs {
     color:rgb(54, 5, 117);
 }
+
+#mineField .red_background {
+    background-color: rgba(218, 52, 52, 0.548);
+    box-shadow: none;
+}

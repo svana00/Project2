@@ -303,6 +303,7 @@ function defeat() {
                 var bomb_img = document.createElement("img");
                 bomb_img.src = "bomb.png";
                 button.appendChild(bomb_img);
+                button.classList.add("red_background");
             }
         }
     }
