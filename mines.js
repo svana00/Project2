@@ -6,10 +6,11 @@ var mine_positions;
 function clearField(mineField)
 {
     document.getElementById("mineField").innerHTML = "";
-    doAjax();
+    document.getElementById("alert_div").innerHTML = "";
+    create_board();
 }
 
-function doAjax() {
+function create_board() {
 
     //The URL to which we will send the request
     var url = 'https://veff213-minesweeper.herokuapp.com/api/v1/minesweeper';
@@ -335,7 +336,10 @@ function is_victory() {
             }
         }
     }
-    bool = true;
-    alert("you woooooooon!!! whoop whoop!!!!!!!!")
-    return bool;
+    var alert_div = document.getElementById("alert_div");
+    var win_alert = document.createElement("div");
+    win_alert.classList.add("alert");
+    win_alert.classList.add("alert-success");
+    win_alert.textContent = "Congratulations! You won the game. Press 'Generate' to play again"
+    alert_div.appendChild(win_alert);
 }
