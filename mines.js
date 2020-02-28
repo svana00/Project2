@@ -40,7 +40,6 @@ function create_board() {
 
                     var state = [j, i];
                     var currentBut = document.createElement("button");
-                    currentBut.isflagged = false;
                     currentBut.xval = j;
                     currentBut.yval = i;
                     currentBut.onclick = function() {cell_click(this);};
@@ -300,15 +299,14 @@ function cell_right_click(button) {
 
     if (button.classList.contains("flagged")) {
         button.classList.remove("flagged");
-        button.removeChild(document.getElementById("flag"));
+        button.removeChild(document.getElementById("flag"+ button.xval + button.yval));
         console.log(button);
     }
 
     else {
         var flag_img = document.createElement("img");
         flag_img.src = "flag.png";
-        flag_img.id = "flag";
-
+        flag_img.id = "flag" + button.xval + button.yval; // creating a unique id for each flag img
         button.appendChild(flag_img);
         button.classList.add("flagged");
         console.log(button);
