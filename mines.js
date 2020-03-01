@@ -52,10 +52,10 @@ function create_board() {
                         container.appendChild(br);
                     }
 
-                    var state = [j, i];
+                    var state = [i, j];
                     var currentBut = document.createElement("button");
-                    currentBut.xval = j;
-                    currentBut.yval = i;
+                    currentBut.xval = i;
+                    currentBut.yval = j;
                     currentBut.onclick = function() {cell_click(this);};
                     currentBut.oncontextmenu = function() {cell_right_click(this);};
                     currentBut.className = "cell";
