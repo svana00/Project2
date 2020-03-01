@@ -14,13 +14,23 @@
     <div id = "title">
         <img id = "logo" src="logo.png">
     </div>
-    <br>
     <!-- Clicking this button calls create_board(), which will do an AJAX request -->
     <form>
-    Rows: <input id = "rows" type = "number" value = 10>
-    Columns: <input id = "cols" type = "number" value = 10>
-    Mines: <input id = "mines" type = "number" value = 10>
-    <button class="click_button" type = "button" onclick="clearField(mineField)">Generate</button>
+        <div>
+            <label for="rows">Rows:</label>
+            <input id = "rows" type = "number" value = 10>
+        </div>
+        <div>
+            <label for="cols">Columns:</label>
+            <input id = "cols" type = "number" value = 10>
+        </div>
+        <div>
+            <label for="mines">Mines:</label>
+            <input id = "mines" type = "number" value = 10>
+        </div>
+        <div>
+            <button type = "button" id = "generate" onclick="clearField(mineField)">Generate</button>
+        </div>
     </form>
 
     <div id = "alert_div">

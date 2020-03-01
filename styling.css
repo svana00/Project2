@@ -20,10 +20,7 @@
 #mineField .revealed {
     box-shadow: none;
     background-color: "grey";
-}
-
-#mineField .revealed:hover {
-    background-color: lightgray;
+    pointer-events: none;
 }
 
 button > img {
@@ -35,13 +32,28 @@ button > img {
     text-align: center;
 }
 
+#generate {
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
 form {
-    margin-left: 30%;
+    margin: 0 auto;
+    width:550px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
 }
 
 input {
-    height: 3%;
-    width: 12%;
+    height: 20px;
+    width: 100px;
+    margin-right: 20px;
     border: 1px solid black;
 }
 
@@ -53,7 +65,8 @@ input {
 #alert_div {
     display: flex;
     justify-content: center;
-    align-items: center;}
+    align-items: center;
+}
 
 .alert {
     width: 500px;
