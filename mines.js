@@ -2,6 +2,7 @@
 var my_rows;
 var my_cols;
 var mine_positions;
+var container;
 
 function clearField(mineField)
 {
@@ -17,6 +18,19 @@ function create_board() {
     var rows_input = document.getElementById("rows").value;
     var cols_input = document.getElementById("cols").value;
     var mines_input = document.getElementById("mines").value;
+    var fields_amount = (rows_input * cols_input);
+
+    if (rows_input === null || rows_input < 1 || rows_input > 40 || cols_input === null || cols_input < 1 || cols_input > 40) {
+        rows_input = 10;
+        cols_input = 10;
+        mines_input = 10;
+    }
+
+    else if (mines_input > fields_amount || mines_input < 1) {
+        rows_input = 10;
+        cols_input = 10;
+        mines_input = 10;
+    }
 
     //Perform an AJAX POST request to the url, and set the param 'myParam' in the request body to paramValue
     axios.post(url, { rows: rows_input, cols: cols_input, mines: mines_input})
@@ -27,7 +41,7 @@ function create_board() {
             var board = response.data.board;
             my_rows = board.rows;
             my_cols = board.cols;
-            var container = document.getElementById("mineField");
+            container = document.getElementById("mineField");
             mine_positions = response.data.board.minePositions;
 
             for (var i = 0; i < my_rows; i++) {
@@ -234,56 +248,56 @@ function cell_click(button) {
 
     if (button.className === "cell") {
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
         find_adjacent_cells(button);
     }
 
     else if (button.className === "one_bomb") {
         button.textContent = "1";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "two_bombs") {
         button.textContent = "2";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "three_bombs") {
         button.textContent = "3";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "four_bombs") {
         button.textContent = "4";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "five_bombs") {
         button.textContent = "5";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "six_bombs") {
         button.textContent = "6";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "seven_bombs") {
         button.textContent = "7";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "eight_bombs") {
         button.textContent = "8";
         button.disabled = true;
-        button.classList.add("threeD");
+        button.classList.add("revealed");
     }
 
     else if (button.className === "bomb") {
@@ -375,6 +389,18 @@ function is_victory() {
         }
     }
     disable_board()
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+
+            var id = String(i) + "," + String(j);
+            var button = document.getElementById(id);
+
+            if (button.classList.contains("flagged") === false) {
+                button.classList.add("green_background");
+            }
+        }
+    }
+
     var alert_div = document.getElementById("alert_div");
     var win_alert = document.createElement("div");
     win_alert.classList.add("alert");

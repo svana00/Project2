@@ -13,9 +13,17 @@
     font-weight: bold;
 }
 
-#mineField .threeD {
+#mineField button:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+#mineField .revealed {
     box-shadow: none;
     background-color: "grey";
+}
+
+#mineField .revealed:hover {
+    background-color: lightgray;
 }
 
 button > img {
@@ -79,4 +87,8 @@ input {
 #mineField .red_background {
     background-color: rgba(218, 52, 52, 0.548);
     box-shadow: none;
+}
+
+#mineField .green_background {
+    background-color: rgb(141, 206, 133);
 }
