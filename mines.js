@@ -39,10 +39,6 @@ function create_board() {
  
         })
         .catch(function (error) {
-            var mine_positions = [[1,3],[3,0],[4,2],[4,5],[4,7],[6,9],[7,7],[8,9],[9,9],[9,3]];
-            row_num = 10;
-            cols_num = 10;
-            mine_num = 10;
             console.log(error);
             my_rows = 10;
             my_cols = 10;
