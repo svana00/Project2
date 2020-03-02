@@ -1,11 +1,10 @@
-"use strict";
+'use strict';
 var my_rows;
 var my_cols;
 var mine_positions;
-var container;
+var container = document.getElementById("mineField");
 
-function clearField(mineField)
-{
+function clearField(mineField) {
     document.getElementById("mineField").innerHTML = "";
     document.getElementById("alert_div").innerHTML = "";
     create_board();
@@ -20,13 +19,7 @@ function create_board() {
     var mines_input = document.getElementById("mines").value;
     var fields_amount = (rows_input * cols_input);
 
-    if (rows_input === null || rows_input < 1 || rows_input > 40 || cols_input === null || cols_input < 1 || cols_input > 40) {
-        rows_input = 10;
-        cols_input = 10;
-        mines_input = 10;
-    }
-
-    else if (mines_input > fields_amount || mines_input < 1) {
+    if (rows_input === null || rows_input < 1 || rows_input > 40 || cols_input === null || cols_input < 1 || cols_input > 40 || mines_input > fields_amount || mines_input < 1) {
         rows_input = 10;
         cols_input = 10;
         mines_input = 10;
@@ -41,7 +34,6 @@ function create_board() {
             var board = response.data.board;
             my_rows = board.rows;
             my_cols = board.cols;
-            container = document.getElementById("mineField");
             mine_positions = response.data.board.minePositions;
 
             for (var i = 0; i < my_rows; i++) {
@@ -97,45 +89,45 @@ function mark_cells() {
             var right_up_diagonal = document.getElementById(String(i+1) + "," + String(j-1))
 
             if (current_button.classList.contains("cell")) {
-                if (upper != null) {
+                if (upper !== null) {
                     if (upper.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
-                if (lower != null) {
+                if (lower !== null) {
                     if (lower.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
-                if (right != null) {
+                if (right !== null) {
                     if (right.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
-                if (left != null) {
+                if (left !== null) {
                     if (left.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
-                if (left_down_diagonal != null) {
+                if (left_down_diagonal !== null) {
                     if (left_down_diagonal.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
 
-                if (right_down_diagonal != null) {
+                if (right_down_diagonal !== null) {
                     if (right_down_diagonal.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
 
-                if (left_up_diagonal != null) {
+                if (left_up_diagonal !== null) {
                     if (left_up_diagonal.classList.contains("bomb")) {
                         counter += 1
                     }
                 }
 
-                if (right_up_diagonal != null) {
+                if (right_up_diagonal !== null) {
                     if (right_up_diagonal.classList.contains("bomb")) {
                         counter += 1
                     }
@@ -183,28 +175,28 @@ function find_adjacent_cells(button) {
     var y = button.yval;
 
     var upper = document.getElementById(String(x) + "," + String(y-1));
-    if (upper != null) {
+    if (upper !== null) {
         if (upper.disabled != true) {
-            cell_click(upper); 
+            cell_click(upper);
         }
     }
 
     var lower = document.getElementById(String(x) + "," + String(y+1));
-    if (lower != null) {
+    if (lower !== null) {
         if (lower.disabled != true) {
             cell_click(lower); 
         }
     }
 
     var left = document.getElementById(String(x-1) + "," + String(y));
-    if (left != null) {
+    if (left !== null) {
         if (left.disabled != true) {
             cell_click(left); 
         }
     }
 
     var right = document.getElementById(String(x+1) + "," + String(y));
-    if (right != null) {
+    if (right !== null) {
         if (right.disabled != true) {
             cell_click(right); 
         }
@@ -212,27 +204,27 @@ function find_adjacent_cells(button) {
 
     var left_down_diagonal = document.getElementById(String(x-1) + "," + String(y+1));
     if (left_down_diagonal != null) {
-        if (left_down_diagonal.disabled != true) {
+        if (left_down_diagonal.disabled !== true) {
             cell_click(left_down_diagonal); 
         }
     }
 
     var right_down_diagonal = document.getElementById(String(x+1) + "," + String(y+1));
-    if (right_down_diagonal != null) {
+    if (right_down_diagonal !== null) {
         if (right_down_diagonal.disabled != true) {
             cell_click(right_down_diagonal); 
         }
     }
 
     var left_up_diagonal = document.getElementById(String(x-1) + "," + String(y-1));
-    if (left_up_diagonal != null) {
+    if (left_up_diagonal !== null) {
         if (left_up_diagonal.disabled != true) {
             cell_click(left_up_diagonal); 
         }
     }
 
     var right_up_diagonal = document.getElementById(String(x+1) + "," + String(y-1));
-    if (right_up_diagonal != null) {
+    if (right_up_diagonal !== null) {
         if (right_up_diagonal.disabled != true) {
             cell_click(right_up_diagonal); 
         }
@@ -243,8 +235,6 @@ function cell_click(button) {
     if (button.classList.contains("flagged") === true) {
         return ;
     }
-
-    console.log(button);
 
     if (button.className === "cell") {
         button.disabled = true;
@@ -305,7 +295,6 @@ function cell_click(button) {
         defeat()
     }
 
-    console.log(button);
     is_victory();
 }
 
@@ -314,7 +303,6 @@ function cell_right_click(button) {
     if (button.classList.contains("flagged")) {
         button.classList.remove("flagged");
         button.removeChild(document.getElementById("flag"+ button.xval + button.yval));
-        console.log(button);
     }
 
     else {
@@ -323,11 +311,8 @@ function cell_right_click(button) {
         flag_img.id = "flag" + button.xval + button.yval; // creating a unique id for each flag img
         button.appendChild(flag_img);
         button.classList.add("flagged");
-        console.log(button);
-
         }
 
-    console.log(button);
     document.addEventListener('contextmenu', event => event.preventDefault());
     is_victory();
 }
@@ -340,13 +325,18 @@ function defeat() {
             var id = String(i) + "," + String(j);
             var button = document.getElementById(id);
             button.disabled = true;
+            button.classList.add("disable_hover");
 
-            if (button.classList.contains("bomb") === true && button.classList.contains("flagged") === false) {
+            if (button.classList.contains("bomb") === true) {
                 var bomb_img = document.createElement("img");
                 bomb_img.src = "bomb.png";
                 button.appendChild(bomb_img);
                 button.classList.add("red_background");
-            }
+                if (button.classList.contains("flagged") === false) {
+                }
+                else if (button.classList.contains("flagged") === true) {
+                    button.removeChild(document.getElementById("flag"+ button.xval + button.yval));                }
+                }
         }
     }
     var alert_div = document.getElementById("alert_div");
@@ -356,12 +346,14 @@ function defeat() {
     defeat_alert.textContent = "Game over. You can try again by pressing the 'Generate' button"
     alert_div.appendChild(defeat_alert);
 }
+
 function disable_board() {
     for (var i = 0; i < my_rows; i++) {
         for (var j = 0; j < my_cols; j++) {
             var id = String(i) + "," + String(j);
             var button = document.getElementById(id);
             button.disabled = true;
+            button.classList.add("disable_hover");
         }
     }
 }
@@ -389,10 +381,10 @@ function is_victory() {
         }
     }
     disable_board()
-    for (var i = 0; i < my_rows; i++) {
-        for (var j = 0; j < my_cols; j++) {
+    for (var x = 0; x < my_rows; x++) {
+        for (var y = 0; y < my_cols; y++) {
 
-            var id = String(i) + "," + String(j);
+            var id = String(x) + "," + String(y);
             var button = document.getElementById(id);
 
             if (button.classList.contains("flagged") === false) {
