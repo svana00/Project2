@@ -35,40 +35,47 @@ function create_board() {
             my_rows = board.rows;
             my_cols = board.cols;
             mine_positions = response.data.board.minePositions;
-
-            for (var i = 0; i < my_rows; i++) {
-                for (var j = 0; j < my_cols; j++) {
-
-                    if (j % my_cols == 0) {
-                        var br = document.createElement("br");
-                        container.appendChild(br);
-                    }
-
-                    var state = [i, j];
-                    var currentBut = document.createElement("button");
-                    currentBut.xval = i;
-                    currentBut.yval = j;
-                    currentBut.onclick = function() {cell_click(this);};
-                    currentBut.oncontextmenu = function() {cell_right_click(this);};
-                    currentBut.className = "cell";
-
-                    for (var index = 0; index < mine_positions.length; index++) { 
-                        if (i === mine_positions[index][0] && j === mine_positions[index][1]) {
-                            currentBut.className = "bomb";
-                        }
-                    } 
-
-                    currentBut.setAttribute("id", state);
-                    container.appendChild(currentBut);
-                }
-            }
-            mark_cells()
-            
+            create_cells();
+ 
         })
         .catch(function (error) {
             //When unsuccessful, print the error.
             console.log(error);
+            my_rows = 10;
+            my_cols = 10;
+            mine_positions = [[3,0], [4,2], [1,3], [9,3], [4,5], [4,7], [7,7], [6,9], [8,9], [9,9]];
+            create_cells();
         });
+}
+
+function create_cells() {
+    for (var i = 0; i < my_rows; i++) {
+        for (var j = 0; j < my_cols; j++) {
+
+            if (j % my_cols == 0) {
+                var br = document.createElement("br");
+                container.appendChild(br);
+            }
+
+            var state = [i, j];
+            var currentBut = document.createElement("button");
+            currentBut.xval = i;
+            currentBut.yval = j;
+            currentBut.onclick = function() {cell_click(this);};
+            currentBut.oncontextmenu = function() {cell_right_click(this);};
+            currentBut.className = "cell";
+
+            for (var index = 0; index < mine_positions.length; index++) { 
+                if (i === mine_positions[index][0] && j === mine_positions[index][1]) {
+                    currentBut.className = "bomb";
+                }
+            } 
+
+            currentBut.setAttribute("id", state);
+            container.appendChild(currentBut);
+        }
+    }
+    mark_cells()
 }
 
 function mark_cells() {
