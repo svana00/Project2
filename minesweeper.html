@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
+
 <head>
     <title>Minesweeper</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styling.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- We need to import Axios in order to be able to use the axios object below -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-    <div id = "title">
-        <img id = "logo" src="logo.png" alt = "Minesweeper logo">
+    <div id="title">
+        <img id="logo" src="logo.png" alt="Minesweeper logo">
     </div>
     <!-- Clicking this button calls create_board(), which will do an AJAX request -->
     <form>
         <div>
             <label for="rows">Rows:</label>
-            <input id = "rows" type = "number" value = 10>
+            <input id="rows" type="number" value=10>
         </div>
         <div>
             <label for="cols">Columns:</label>
-            <input id = "cols" type = "number" value = 10>
+            <input id="cols" type="number" value=10>
         </div>
         <div>
             <label for="mines">Mines:</label>
-            <input id = "mines" type = "number" value = 10>
+            <input id="mines" type="number" value=10>
         </div>
         <div>
-            <button type = "button" id = "generate" onclick="clearField(mineField)">Generate</button>
+            <button type="button" id="generate" onclick="clearField(mineField)">Generate</button>
         </div>
     </form>
 
-    <div id = "alert_div">
+    <div id="alert_div">
 
     </div>
 
-    <div id = "mineField">
+    <div id="mineField">
 
     </div>
 
